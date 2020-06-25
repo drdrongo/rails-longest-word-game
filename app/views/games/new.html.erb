@@ -1,0 +1,22 @@
+<h1>This is the new page</h1>
+
+<div class="container">
+  <ul class="list-group list-group-horizontal">
+    <% @letters.each do |letter| %>
+      <li class="list-group-item"><%= letter %></li>
+    <% end %>
+  </ul>
+
+  <%= form_tag({controller: "games", action: "score"}, method: "post", params: { letters: @letters }) do %>
+    <%= label_tag(:word, "Find the longest word") %>
+    <%= text_field_tag(:word) %>
+    <%= submit_tag("Submit Word") %>
+    <%= hidden_field_tag :letters, @letters %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <% end %>
+
+
+<!--
+  <%= form_with do %>
+  <% end %> -->
+</div>
