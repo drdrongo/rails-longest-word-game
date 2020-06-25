@@ -1,8 +1,19 @@
-<h1>Result</h1>
+<div class="container">
+  <h1>Result</h1>
 
-<%= @message %>
-<%= @session_score %>
+  <strong><%= @message %></strong>
+  <br>
+  <p><%= "Word score:#{session[:score]}" %></p>
+  <p><%= "Your total score:#{session[:total_score]}" %></p>
+  <p><%= "Your highest scoring word:#{session[:longest_word]}" %></p>
 
-<div class="return">
-  <%= link_to "Go Back", 'new' %>
+  <ol class="words-list">
+    <% session[:words_array].each do |word| %>
+      <li><%= word %></li>
+    <% end %>
+  </ol>
+
+  <div class="return">
+    <%= link_to "Go Back", 'new' %>
+  </div>
 </div>
