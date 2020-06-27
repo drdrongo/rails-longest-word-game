@@ -16,4 +16,8 @@
   <div class="return">
     <%= link_to "Go Back", 'new' %>
   </div>
+
+  <%= form_tag({controller: "games", action: "reset"}, method: "post") do %>
+    <%= submit_tag 'reset' %>
+  <% end %>
 </div>

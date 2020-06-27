@@ -51,4 +51,10 @@ class GamesController < ApplicationController
     session[:words_array] << params[:word]
     session[:words_array] = session[:words_array].uniq.sort_by(&:length)[0..9].reverse
   end
+
+  def reset
+    session[:total_score] = 0
+    session[:longest_word] = ''
+    session[:words_array] = []
+  end
 end
